@@ -9,7 +9,10 @@ import com.netlink.Repository.SurveyRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.criteria.From;
+import java.lang.reflect.Member;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class FormImp implements FormService {
@@ -27,9 +30,14 @@ public class FormImp implements FormService {
     public String saveData(Form form) {
         if(form.getUsername()!=null && form.getEmail()!=null
                 && form.getPassword()!=null && form.getAddress()!=null){
-            Form frm = repo.save(form);
-            if(frm!=null){
-                return "User has been registered";
+            Form userExist = repo.findByEmail(form.getEmail());
+            if(userExist==null){
+                Form frm = repo.save(form);
+                if(frm!=null){
+                    return "User has been registered";
+                }
+            } else{
+                return  "Email already exists";
             }
         } else{
             return "All fields are mandatory";
@@ -64,8 +72,10 @@ public class FormImp implements FormService {
     }
 
     @Override
-    public Boolean removeMember(Long id) {
-        mrepo.deleteById(id);
+    public Boolean removeMember(MemberInfo member) {
+        OwnerInfo owner =  orepo.getById(member.getOwner().getOwner_id());
+        owner.getMembers().remove(member);
+        orepo.save(owner);
         return true;
     }
 

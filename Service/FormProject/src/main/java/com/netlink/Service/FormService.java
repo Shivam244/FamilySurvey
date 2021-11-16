@@ -12,6 +12,6 @@ public interface FormService {
     public String loginUser(Form form);
     public Boolean saveSurvey(OwnerInfo survey);
     public List<OwnerInfo> showData();
-    public Boolean removeMember(Long id);
+    public Boolean removeMember(MemberInfo member);
     public Boolean findByEmail(Form form);
 }

@@ -41,9 +41,11 @@ export class SurveyComponent implements OnInit {
    removeMember(i:any){
      if(this.verify){
         this.service.deleteMember(this.getMemberFromIndex(i)).subscribe(resp =>{
-          if(resp) console.log(resp);         
+          console.log(resp);         
         });
-        console.log(this.getMemberFromIndex(i));
+        console.log(this.getMemberFromIndex(i));    
+        this.members.removeAt(i);
+        console.log(this.survey.members);
         
      }
       this.members.removeAt(i);
@@ -51,7 +53,6 @@ export class SurveyComponent implements OnInit {
    }
 
    onSubmit(){
-    //  this.surveyData = this.survey;
      console.log(JSON.stringify(this.survey.value)); 
      this.service.saveServayData(this.survey.value).subscribe(response=> {
        console.log(response);

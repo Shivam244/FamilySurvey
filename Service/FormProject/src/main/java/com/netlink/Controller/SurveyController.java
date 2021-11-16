@@ -1,5 +1,6 @@
 package com.netlink.Controller;
 
+import com.netlink.Model.MemberInfo;
 import com.netlink.Model.OwnerInfo;
 import com.netlink.Service.FormService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,10 +52,19 @@ public class SurveyController {
      * This method will delete the member from survey component
      * @return ResponseEntity
      */
-    @CrossOrigin(origins = "*", allowedHeaders = "*", methods = RequestMethod.DELETE)
-    @DeleteMapping("/deleteMember/{id}")
-    public ResponseEntity<Boolean> deleteMember(@PathVariable("id") Long id){
-        Boolean resp = service.removeMember(id);
+//    @DeleteMapping("/deleteMember/{id}")
+//    public ResponseEntity<Boolean> deleteMember(@PathVariable("id") Long id){
+//        Boolean resp = service.removeMember(id);
+//        return new ResponseEntity<>(resp,HttpStatus.OK);
+//    }
+
+    /**
+     * This method will delete the member from survey component
+     * @return ResponseEntity
+     */
+    @PostMapping("/deleteMember")
+    public ResponseEntity<Boolean> dltMember(@RequestBody MemberInfo member){
+        Boolean resp = service.removeMember(member);
         return new ResponseEntity<>(resp,HttpStatus.OK);
     }
 }

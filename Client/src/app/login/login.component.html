@@ -1,42 +1,12 @@
-<div id="main">
 
-    <div id="box">
+<!----------------------------------------------------------------------------------------------->
 
-        <div class="login-form">
 
-       <form [formGroup]="loginForm" (ngSubmit)=" getData()" class="box2">
+<form class="login" [formGroup]="loginForm" (ngSubmit)=" getData()">
+  <input type="text" placeholder="username" name="username" formControlName="username">
+  <input type="password" placeholder="Password" name="password" formControlName="password"> <br>
+  <a routerLink="/forgot-passowrd">Forgot Password</a>
+  <button type="submit">Login</button> <br>
+</form>
 
-        <h2>LOGIN</h2> <hr>
-
-       
-
-        <div id="input">
-
-        
-
-          <i class="ri-user-line"></i><input type="text" placeholder="userame"  name="username" formControlName="username"><br>
-
-          <i class="ri-lock-fill"></i><input type="password" placeholder="Password" name="password" formControlName="password">
-
-        </div><hr>
-
-       
-
-         
-
-        <button type="submit">login</button>
-        <a routerLink="/forgot-passowrd">Forgot Password</a>
-
-        </form>
-
-        
-
-        </div> <br>
-
-        <a routerLink="/home"> back to home</a>
-
-         
-
-    </div>
-
-</div>
+<a id="register" routerLink="/signup">New user ? Register here</a>

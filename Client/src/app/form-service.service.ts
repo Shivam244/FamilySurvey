@@ -36,8 +36,8 @@ export class FormServiceService {
     return this.http.get('http://localhost:8080/survey/showData');
   }
 
-  deleteMember(id: number): Observable<any>{
-    return this.http.delete(`${this.url}/deleteMember/${id}`,{responseType: 'text'});
+  deleteMember(member: any): Observable<any>{
+    return this.http.post('http://localhost:8080/survey/deleteMember', member, {responseType: 'text'});
   }
 
   resetPassword(data: any): Observable<any>{

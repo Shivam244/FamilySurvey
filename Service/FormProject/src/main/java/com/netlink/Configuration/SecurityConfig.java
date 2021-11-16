@@ -12,7 +12,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     protected void configure(HttpSecurity security) throws Exception{
         try{
-            security.csrf().disable().authorizeRequests().antMatchers("/auth/login","/auth/register","/auth/forgot-password", "/survey/showData").permitAll().anyRequest()
+            security.csrf().disable().authorizeRequests()
+                    .antMatchers("/auth/login","/auth/register","/auth/forgot-password", "/survey/showData", "/survey/save", "/survey/update", "/survey/deleteMember").permitAll().anyRequest()
                     .authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
 
             security.cors();

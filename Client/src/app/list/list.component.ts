@@ -67,8 +67,6 @@ export class ListComponent implements OnInit {
     this.service.showData().subscribe(response => {
       this.rowData = response;     
     })
-    // this.modal.nativeElement.style.display("none");
-
   }
 
 }

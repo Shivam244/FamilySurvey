@@ -1,5 +1,10 @@
-<h1>Census Survey Form</h1>
+
+<div class="top">
+    <h1>Census Survey Form</h1> 
+    <button routerLink="/home">Logout</button>
+</div>
 <div id=main>
+ 
     <form [formGroup] = "survey" (ngSubmit)="onSubmit()">
         <div>
             <div>
@@ -10,14 +15,14 @@
                 Owner Name * <br>
             <input type="text" name="owner_name" id="owner_name" formControlName="owner_name">
             </div>
-            <button type="button" (click)="addMember()" [disabled] = "!survey.get('hn').valid || !survey.get('owner_name').valid">Add members</button><br>
+            <button id="add" type="button" (click)="addMember()" [disabled] = "!survey.get('hn').valid || !survey.get('owner_name').valid">Add members</button><br>
         </div> <br><br>
         <div class="formArray" formArrayName="members">
             <ng-container *ngFor="let member of members.controls; index as i;" [formGroupName]="i">
                 <div>
                     
-                    &nbsp;&nbsp;&nbsp;  Name <br>
-                    {{i+1}}) &nbsp;<input type="text" name="name" formControlName="name">
+                    Name <br>
+                    <input type="text" name="name" formControlName="name">
                 </div>
                 <div>
                     Age <br>
@@ -46,4 +51,8 @@
         </div>
         <button type="button" id="list" routerLink="/list">List</button>
     </form>
+    <br><br>  
 </div>
+<a routerLink="/home">Back to home</a>
+
+
