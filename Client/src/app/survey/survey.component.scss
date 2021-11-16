@@ -1,0 +1,56 @@
+#main form div{
+    display: inline-block;
+    margin-left: 40px;
+      
+}
+
+#main form button{
+    margin-left: 40px;
+}
+
+#main{
+    margin-left: 60px;
+    margin-top: 60px;
+    font-family: 'Fira Sans' ,sans-serif;
+}
+
+#submit{
+    display: block;
+    margin-top: 40px;
+    margin-left: 30%;
+}
+
+.formArray{
+    display: block;
+
+}
+
+.formArray div{
+    display: block;   
+    padding-top: 10px;
+}
+
+h1{
+    margin-left: 80px;
+    margin-top: 50px;
+    font-family: 'Fira Sans', sans-serif;
+    color: crimson;
+}
+button{
+    border:none;
+    font-size: 16px;
+    padding: 6px 15px;
+    color: white;
+    background-color: crimson;
+    border-radius: 2px;
+    font-family: sans-serif;
+    cursor: pointer;
+}
+
+button:hover{
+    transform: scale(1.05);
+    cursor: pointer;
+}
+#list{
+    width: 75px;
+}

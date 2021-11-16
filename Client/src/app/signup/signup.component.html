@@ -1,0 +1,25 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">
+</head>
+<body style="background-color: gray;">
+    <div id="main">
+        <div id="box">
+           <form  [formGroup] = "reactiveForm" (ngSubmit)="save()" class="box2">
+            <h2>Registration</h2> <hr>
+           
+            <div id="input">
+                <i class="ri-user-line"></i><input type="name" placeholder="Name" formControlName = "username"><br>
+              <i class="ri-mail-line"></i><input type="email" placeholder="E-mail" formControlName = "email"><br>
+              <i class="ri-lock-fill"></i><input type="password" placeholder="Password" formControlName = "password"><br>
+              <i class="ri-lock-fill"></i><input type="text" placeholder="Address" formControlName = "address">
+            </div><hr>
+           
+              
+            <button type="submit">signup</button>
+            </form>
+            <a routerLink="/home">Back to home</a>
+              
+        </div>
+
+    </div>
+</body>

@@ -1,0 +1,53 @@
+<h2>Edit Sensus Surevey Form</h2>
+<div id="main">
+    <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div>
+            <div>
+                Id <br>
+                <input type="text" name="owner_id" id="owner_id" formControlName="owner_id" readonly="readonly">
+            </div>
+            <div>
+                House No. * <br>
+                <input type="text" name="hn" id="hn" formControlName="hn">
+            </div>
+            <div>
+                Owner Name * <br>
+                <input type="text" name="owner_name" id="owner_name" formControlName="owner_name">
+            </div>
+        </div>
+        <div class="formArray" formArrayName="members">
+            <ng-container *ngFor="let member of members.controls; index as i;" [formGroupName]="i">
+                <div>
+
+                    &nbsp;&nbsp;&nbsp; Name <br>
+                    {{i+1}}) &nbsp;<input type="text" name="name" formControlName="name">
+                </div>
+                <div>
+                    Age <br>
+                    <input type="text" name="age" formControlName="age">
+                </div>
+                <div>
+                    Dob <br>
+                    <input type="date" name="dob" formControlName="dob">
+                </div>
+                <div>
+                    <!-- <label for="male">Male</label>
+                    <input type="radio" name="gender" value="male" formControlName="gender">
+                    <label for="female">Female</label>
+                    <input type="radio" name="gender" value="female" formControlName="gender"> -->
+                    Gender <br>
+                    <select name="gender" id="gender" formControlName="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div>
+                    <button type="button" (click)="removeMember(i)">Delete</button>
+                </div> <br>              
+            </ng-container>
+            <div id="submit">
+                <button type="submit">Update</button>
+            </div>
+        </div>
+    </form>
+</div>
