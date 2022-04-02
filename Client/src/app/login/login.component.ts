@@ -4,6 +4,7 @@ import { FormServiceService } from '../form-service.service';
 // import { Form } from '../form';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { Form } from '../model/Form';
 
 
 @Component({
@@ -12,19 +13,21 @@ import { Router } from '@angular/router';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  loginForm= new FormGroup({
-    username:new FormControl(''),
-    email: new FormControl(''),
-    password:new FormControl(''),
-    address: new FormControl('')
-  })
 
+  loginForm: FormGroup;
+  form: Form;
   message= "User has logged in";
+  resp:any;
 
   constructor(private service:FormServiceService, private router:Router) { }
   
   ngOnInit(): void {
-    
+    this.loginForm= new FormGroup({
+      username:new FormControl(''),
+      email: new FormControl(''),
+      password:new FormControl(''),
+      address: new FormControl('')
+    })
   }
 
   getData(){
@@ -32,14 +35,16 @@ export class LoginComponent implements OnInit {
     this.service.getData(this.loginForm.value).subscribe(response => {},
      resp => {
       if(resp.error == this.message) {
-        this.router.navigateByUrl('/survey')
-        console.log(resp.error);     
+        this.router.navigateByUrl('/survey')   
       }
       else{
-        alert(resp.error)
+        alert(resp.error) 
       }
-    }
+      
+      }
+    
     )
   }
+
 
 }

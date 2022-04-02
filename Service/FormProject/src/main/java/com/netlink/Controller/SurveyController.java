@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @CrossOrigin(origins = "*", allowedHeaders = "*")
@@ -48,23 +47,10 @@ public class SurveyController {
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
 
-    /**
-     * This method will delete the member from survey component
-     * @return ResponseEntity
-     */
-//    @DeleteMapping("/deleteMember/{id}")
-//    public ResponseEntity<Boolean> deleteMember(@PathVariable("id") Long id){
-//        Boolean resp = service.removeMember(id);
-//        return new ResponseEntity<>(resp,HttpStatus.OK);
-//    }
-
-    /**
-     * This method will delete the member from survey component
-     * @return ResponseEntity
-     */
-    @PostMapping("/deleteMember")
-    public ResponseEntity<Boolean> dltMember(@RequestBody MemberInfo member){
-        Boolean resp = service.removeMember(member);
-        return new ResponseEntity<>(resp,HttpStatus.OK);
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<Boolean> delete(@PathVariable("id") Long id){
+        Boolean removed =  service.removeMember(id);
+        return new ResponseEntity<>(removed, HttpStatus.OK);
     }
+
 }

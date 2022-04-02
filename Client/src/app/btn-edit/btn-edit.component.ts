@@ -28,6 +28,7 @@ export class BtnEditComponent implements ICellRendererAngularComp {
         rowData: this.params.node.data
       }
       this.params.onClick(params);
+      
     }
     
   }

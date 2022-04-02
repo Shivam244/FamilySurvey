@@ -72,10 +72,8 @@ public class FormImp implements FormService {
     }
 
     @Override
-    public Boolean removeMember(MemberInfo member) {
-        OwnerInfo owner =  orepo.getById(member.getOwner().getOwner_id());
-        owner.getMembers().remove(member);
-        orepo.save(owner);
+    public Boolean removeMember(Long id) {
+        mrepo.deleteById(id);
         return true;
     }
 

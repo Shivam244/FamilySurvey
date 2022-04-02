@@ -11,16 +11,18 @@ import { FormServiceService } from '../form-service.service';
 })
 export class SignupComponent implements OnInit {
   msg = "User has been registered"
-
-  reactiveForm = new FormGroup({
-    username: new FormControl('',Validators.required), 
-    email: new FormControl('',Validators.required),
-    password: new FormControl('',Validators.required),
-    address: new FormControl('',Validators.required)
-  })
+  reactiveForm: FormGroup;
+  
 
   constructor(private service:FormServiceService, private router:Router) { }
+
   ngOnInit(): void {
+    this.reactiveForm = new FormGroup({
+      username: new FormControl('',Validators.required), 
+      email: new FormControl('',Validators.required),
+      password: new FormControl('',Validators.required),
+      address: new FormControl('',Validators.required)
+    })
   }
 
   save(){

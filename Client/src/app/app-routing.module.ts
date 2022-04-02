@@ -4,7 +4,6 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { LoginComponent } from './login/login.component';
-import { MembersComponent } from './members/members.component';
 import { SignupComponent } from './signup/signup.component';
 import { SurveyComponent } from './survey/survey.component';
 
@@ -15,7 +14,6 @@ const routes: Routes = [
   {path:'survey',component:SurveyComponent},
   {path:'home',component:HomeComponent},
   {path:'list',component:ListComponent},
-  {path:'member',component:MembersComponent},
   {path:'forgot-passowrd',component:ForgotPasswordComponent}
 ];
 

@@ -14,7 +14,7 @@ import { SurveyComponent } from './survey/survey.component';
 import { ListComponent } from './list/list.component';
 import {AgGridModule} from 'ag-grid-angular';
 import { BtnEditComponent } from './btn-edit/btn-edit.component';
-import { MembersComponent } from './members/members.component';
+// import { MembersComponent } from './members/members.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 
 @NgModule({
@@ -26,7 +26,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     SurveyComponent,
     ListComponent,
     BtnEditComponent,
-    MembersComponent,
+    // MembersComponent,
     ForgotPasswordComponent
   ],
   imports: [

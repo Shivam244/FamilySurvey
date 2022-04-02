@@ -39,21 +39,12 @@ export class SurveyComponent implements OnInit {
    }
 
    removeMember(i:any){
-     if(this.verify){
-        this.service.deleteMember(this.getMemberFromIndex(i)).subscribe(resp =>{
-          console.log(resp);         
-        });
-        console.log(this.getMemberFromIndex(i));    
-        this.members.removeAt(i);
-        console.log(this.survey.members);
-        
-     }
+      console.log(i);  
       this.members.removeAt(i);
       this.count--;  
    }
 
    onSubmit(){
-     console.log(JSON.stringify(this.survey.value)); 
      this.service.saveServayData(this.survey.value).subscribe(response=> {
        console.log(response);
        if(response) alert("Data has been saved");
@@ -67,9 +58,7 @@ export class SurveyComponent implements OnInit {
    }
 
 
-  ngOnInit(): void {
-    console.log(this.data);
-    
+  ngOnInit(): void {  
     if(this.verify){
       this.survey = this.formBuilder.group({
         owner_id : [this.data.owner_id],

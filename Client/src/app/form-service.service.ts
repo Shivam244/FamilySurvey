@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Form } from './model/Form';
 // import { Form } from './form';
 // import { Survey } from './survey';
 
@@ -21,7 +22,7 @@ export class FormServiceService {
   }
 
   getData(user: any): Observable<any>{
-    return this.http.post('http://localhost:8080/auth/login', user,{responseType: 'text'});
+    return this.http.put('http://localhost:8080/auth/login', user,{responseType: 'text'});
   }
 
   saveServayData(survey: any): Observable<any>{
@@ -36,12 +37,12 @@ export class FormServiceService {
     return this.http.get('http://localhost:8080/survey/showData');
   }
 
-  deleteMember(member: any): Observable<any>{
-    return this.http.post('http://localhost:8080/survey/deleteMember', member, {responseType: 'text'});
-  }
-
   resetPassword(data: any): Observable<any>{
     return this.http.post('http://localhost:8080/auth/forgot-password', data)
+  }
+
+  deleteMember(id:number): Observable<any>{
+    return this.http.delete(`http://localhost:8080/survey/delete/${id}`)
   }
 
   //collect data from edit button

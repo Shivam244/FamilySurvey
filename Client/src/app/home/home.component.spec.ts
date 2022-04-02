@@ -1,14 +1,20 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormServiceService } from '../form-service.service';
 
 import { HomeComponent } from './home.component';
 
-describe('HomeComponent', () => {
+fdescribe('HomeComponent', () => {
   let component: HomeComponent;
   let fixture: ComponentFixture<HomeComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HomeComponent ]
+      declarations: [ HomeComponent ],
+      imports: [HttpClientTestingModule, RouterTestingModule.withRoutes([]),ReactiveFormsModule, FormsModule]
+      
     })
     .compileComponents();
   });

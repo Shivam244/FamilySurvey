@@ -14,9 +14,6 @@ export class ListComponent implements OnInit {
   frameworkComponents: any;
   MemberForm: FormGroup;
   element:any;
-  @ViewChild("div") div:any;
-  @ViewChild("modal") modal:any;
-  @ViewChild("grid") gird:any;
   gridApi:any;
   columnApi:any;
 
@@ -48,17 +45,12 @@ export class ListComponent implements OnInit {
     }
   ]
 
-  onGridReady = (params: { api: GridApi; columnApi: ColumnApi; }) => {
-    this.gridApi = params.api;
-    this.columnApi = params.columnApi;
-  }
-
-  
-
   onBtnClick(data: any){ 
     this.service.takeOwner(data);
     this.service.verify = true;
   }
+
+
 
 
   rowData = [];

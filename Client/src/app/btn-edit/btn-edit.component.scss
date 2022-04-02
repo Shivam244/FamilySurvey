@@ -1,0 +1,18 @@
+button{
+    font-family: 'Asap', sans-serif;
+    cursor: pointer;
+    color: #fff;
+    font-size: 12px;
+    text-transform: uppercase;
+    width: 50px;
+    border: 0;
+    padding: 2px 0;
+    margin-left: -5px;
+    border-radius: 5px;
+    background-color: crimson;
+    transition:background-color 300ms;
+    
+    &:hover {
+      background-color: darken(crimson, 12%);
+    }
+}

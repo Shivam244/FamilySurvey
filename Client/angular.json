@@ -72,12 +72,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "form:build:production",
-              "proxyConfig": "./proxy.conf.json"
+              "browserTarget": "form:build:production"
             },
             "development": {
-              "browserTarget": "form:build:development",
-              "proxyConfig": "./proxy.conf.json"
+              "browserTarget": "form:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -92,6 +90,7 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "main": "src/test.ts",
+            "codeCoverage": true,
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",

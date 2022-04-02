@@ -21,7 +21,7 @@ public class  FormController {
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
-    @PostMapping("/login")
+    @PutMapping("/login")
     public ResponseEntity<String> login(@RequestBody Form form){
         String response = data.loginUser(form);
         return new ResponseEntity<>(response, HttpStatus.FOUND);
