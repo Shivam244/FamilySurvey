@@ -5,6 +5,7 @@ import { FormServiceService } from '../form-service.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Form } from '../model/Form';
+import { DataSharingService } from '../service/data-sharing.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ export class LoginComponent implements OnInit {
   message= "User has logged in";
   resp:any;
 
-  constructor(private service:FormServiceService, private router:Router) { }
+  constructor(private service:FormServiceService, private router:Router, private dataSharingService: DataSharingService) { }
   
   ngOnInit(): void {
     this.loginForm= new FormGroup({
@@ -32,10 +33,14 @@ export class LoginComponent implements OnInit {
 
   getData(){
     console.log(this.loginForm.value);
-    this.service.getData(this.loginForm.value).subscribe(response => {},
-     resp => {
-      if(resp.error == this.message) {
-        this.router.navigateByUrl('/survey')   
+    this.service.login(this.loginForm.value).subscribe(resp=> {
+      if(resp) {
+        this.dataSharingService.setUserData(resp);
+        if(resp.role === "Admin"){
+          this.router.navigateByUrl('/list')   
+        } else{
+          this.router.navigateByUrl('/survey') 
+        }     
       }
       else{
         alert(resp.error) 

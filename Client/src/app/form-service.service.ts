@@ -18,11 +18,11 @@ export class FormServiceService {
   constructor(private http:HttpClient) { }
 
   saveData(user: any): Observable<any>{
-    return this.http.post('http://localhost:8080/auth/register', user, {responseType: 'text'});
+    return this.http.post('http://localhost:8080/register', user, {responseType: 'text'});
   }
 
-  getData(user: any): Observable<any>{
-    return this.http.put('http://localhost:8080/auth/login', user,{responseType: 'text'});
+  login(user: any): Observable<any>{
+    return this.http.post('http://localhost:8080/authenticate', user);
   }
 
   saveServayData(survey: any): Observable<any>{
@@ -38,7 +38,7 @@ export class FormServiceService {
   }
 
   resetPassword(data: any): Observable<any>{
-    return this.http.post('http://localhost:8080/auth/forgot-password', data)
+    return this.http.post('http://localhost:8080/forgot-password', data)
   }
 
   deleteMember(id:number): Observable<any>{

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormArray, Validators, FormsModule} from '@angular/forms';
 import { FormServiceService } from '../form-service.service';
 import { ReactiveFormsModule } from '@angular/forms';
+import { DataSharingService } from '../service/data-sharing.service';
 // import { Survey } from '../survey';
 
 @Component({
@@ -17,7 +18,7 @@ export class SurveyComponent implements OnInit {
   verify = false;
   data:any; //{hn, owner_name, owner_id}
   
-  constructor(private formBuilder: FormBuilder, private service: FormServiceService){
+  constructor(private formBuilder: FormBuilder, private service: FormServiceService, private dataSharingService: DataSharingService){
     this.data = this.service.owner;
     this.verify = this.service.verify;
   }
@@ -85,6 +86,11 @@ export class SurveyComponent implements OnInit {
         'members': new FormArray([],)
       });
     }
+    
+    (this.dataSharingService.getUserData().subscribe(resp=>{
+      console.log(resp);
+      
+    }));
     
 
   }
