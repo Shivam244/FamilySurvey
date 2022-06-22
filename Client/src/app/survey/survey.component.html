@@ -1,0 +1,58 @@
+
+<div class="top">
+    <h1>Census Survey Form</h1> 
+    <button routerLink="/home">Logout</button>
+</div>
+<div id=main>
+ 
+    <form [formGroup] = "survey" (ngSubmit)="onSubmit()">
+        <div>
+            <div>
+                House No. * <br>
+            <input type="text" name="hn" id="hn" formControlName="hn">
+            </div>
+            <div>
+                Owner Name * <br>
+            <input type="text" name="owner_name" id="owner_name" formControlName="owner_name">
+            </div>
+            <button id="add" type="button" (click)="addMember()" [disabled] = "!survey.get('hn').valid || !survey.get('owner_name').valid">Add members</button><br>
+        </div> <br><br>
+        <div class="formArray" formArrayName="members">
+            <ng-container *ngFor="let member of members.controls; index as i;" [formGroupName]="i">
+                <div>
+                    
+                    Name <br>
+                    <input type="text" name="name" formControlName="name">
+                </div>
+                <div>
+                    Age <br>
+                    <input type="text" name="age" formControlName="age">
+                </div>
+                <div>
+                    Dob <br>
+                    <input type="date" name="dob" formControlName="dob">
+                </div>
+                <div>
+                    Gender <br>
+                    <select name="gender" id="gender" formControlName="gender">
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+                <div>
+                    <button (click)="removeMember(member.value.member_id)">Delete</button>
+                </div> <br>
+            </ng-container>
+            
+
+        </div> <br>
+        <div id="submit">
+            <button type="submit" [disabled] = !survey.valid>Save</button>
+        </div>
+        <!-- <button type="button" id="list" routerLink="/list">List</button> -->
+    </form>
+    <br><br>  
+</div>
+<a routerLink="/home">Back to home</a>
+
+

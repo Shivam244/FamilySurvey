@@ -1,0 +1,10 @@
+
+<form class="login" [formGroup]="reactiveForm" (ngSubmit)=" save()">
+    <input type="text" placeholder="username" name="username" formControlName="username">
+    <input type="text" placeholder="username" type="email" placeholder="E-mail" formControlName = "email">
+    <input type="password" placeholder="Password" name="password" formControlName="password">
+    <input type="text" placeholder="Address" placeholder="Address" formControlName = "address">
+    <button type="submit">Sign Up</button> <br>
+  </form>
+
+  <a id="register" routerLink="/login">Already a user ? Login here</a>

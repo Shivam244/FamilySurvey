@@ -1,0 +1,198 @@
+#main form div{
+    display: inline-block;
+    margin-left: 40px;     
+}
+
+#main form button{
+    margin-left: 40px;
+}
+
+#main{
+    margin-left: 60px;
+    margin-top: 60px;
+    font-family: 'Fira Sans' ,sans-serif;
+}
+
+#submit{
+    display: block;
+    margin-top: 40px;
+    margin-left: 30%;
+}
+
+.formArray{
+    display: block;
+}
+
+.formArray div{
+    display: block;   
+    padding-top: 10px;
+}
+
+h1{
+    margin-left: 80px;
+    margin-top: 20px;
+    font-family: 'Fira Sans', sans-serif;
+    color: crimson;
+}
+
+
+#list{
+    width: 75px;
+}
+a{
+    margin-left: 10%;
+}
+
+
+@import "bourbon";
+
+// Colors
+$greenSeaweed: rgba(2, 128, 144, 1);
+$blueQueen: rgba(69, 105, 144, 1);
+$redFire: crimson;
+
+// Fonts
+$fontAsap: 'Asap', sans-serif;
+
+body {
+    background-color: $redFire;
+    font-family: $fontAsap;
+}
+
+#main{
+    overflow: hidden;
+    background-color: white;
+    padding: 40px 30px 30px 30px;
+    border-radius: 10px;
+    position: absolute;
+    top: 43%;
+    left: 45%;
+    width: 1000px;
+    height: 400px;
+    overflow-y:auto;
+     transform:translate(-50%, -50%);
+     transition:transform 300ms, box-shadow 300ms;
+    box-shadow: 5px 10px 10px rgba($greenSeaweed, 0.2);
+    &::-webkit-scrollbar {
+        display: none;
+      }
+&::before, &::after {
+    content: '';
+    position: absolute;
+    width: 1500px;
+    height: 1500px;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 45%;
+    border-bottom-left-radius: 35%;
+    border-bottom-right-radius: 40%;
+    z-index: -1;
+  }
+  
+  &::before {
+    left: 40%;
+    bottom: -130%;
+    background-color: rgba($blueQueen, 0.15);
+    animation:wawes 6s infinite linear;
+  }
+  
+  &::after {
+    left: 35%;
+    bottom: -125%;
+    background-color: rgba($greenSeaweed, 0.2);
+    animation:wawes 7s infinite;
+  }
+  
+  > input {
+    font-family: $fontAsap;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border: 0;
+    padding: 10px 10px;
+    margin: 15px -10px;
+  }
+  
+  > button {
+    font-family: $fontAsap;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 80px;
+    border: 0;
+    padding: 10px 0;
+    margin-top: 10px;
+    margin-left: -5px;
+    border-radius: 5px;
+    background-color: $redFire;
+    transition:background-color 300ms;
+    
+    &:hover {
+      background-color: darken($redFire, 5%);
+    }
+  }
+}
+
+ @keyframes  wawes {
+  from {  transform:(rotate(0)); }
+  to {  transform:(rotate(360deg)); }
+}
+
+button{
+    font-family: $fontAsap;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 80px;
+    border: 0;
+    padding: 10px 0;
+    margin-top: 10px;
+    margin-left: -5px;
+    border-radius: 5px;
+    background-color: $redFire;
+    transition:background-color 300ms;
+    
+    &:hover {
+      background-color: darken($redFire, 5%);
+    }
+}
+#add{
+    width: 150px;
+}
+
+input{
+    font-family: $fontAsap;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border: 0;
+    padding: 10px 10px;
+    margin: 15px -10px;
+    box-shadow: 5px 10px 20px rgba(black, 0.2);
+}
+select{
+    margin-top: 28px;
+    font-family: $fontAsap;
+    font-size: 16px;
+    display: block;
+    border-radius: 5px;
+    padding: 10px 10px;
+    margin: 15px -10px;
+}
+
+.top{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    >button{
+        margin-left: 800px;
+        height: 35px;
+        width: 90px;
+    }
+}
+

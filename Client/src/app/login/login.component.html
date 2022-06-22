@@ -1,0 +1,12 @@
+
+<!----------------------------------------------------------------------------------------------->
+
+
+<form class="login" [formGroup]="loginForm" (ngSubmit)=" getData()">
+  <input type="text" placeholder="username" name="username" formControlName="username">
+  <input type="password" placeholder="Password" name="password" formControlName="password"> <br>
+  <a routerLink="/forgot-passowrd">Forgot Password</a>
+  <button type="submit">Login</button> <br>
+</form>
+
+<a id="register" routerLink="/signup">New user ? Register here</a>

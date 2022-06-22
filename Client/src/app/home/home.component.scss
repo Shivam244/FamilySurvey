@@ -1,0 +1,92 @@
+@import "bourbon";
+
+// Colors
+$greenSeaweed: rgba(2, 128, 144, 1);
+$blueQueen: rgba(69, 105, 144, 1);
+$redFire: crimson;
+
+// Fonts
+$fontAsap: 'Asap', sans-serif;
+
+body {
+    background-color: $redFire;
+    font-family: $fontAsap;
+}
+
+.main{
+  
+  &::before, &::after {
+    content: '';
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    border-top-left-radius: 40%;
+    border-top-right-radius: 45%;
+    border-bottom-left-radius: 35%;
+    border-bottom-right-radius: 40%;
+    z-index: -1;
+    top: 6%;
+  }
+  
+  &::before {
+    left: 40%;
+    bottom: -130%;
+    background-color: rgba($blueQueen, 0.15);
+    animation:wawes 6s infinite linear;
+  }
+  
+  &::after {
+    left: 35%;
+    bottom: -125%;
+    background-color: rgba($greenSeaweed, 0.2);
+    animation:wawes 7s infinite;
+  }
+  
+  > input {
+    font-family: $fontAsap;
+    display: block;
+    border-radius: 5px;
+    font-size: 16px;
+    background: white;
+    width: 100%;
+    border: 0;
+    padding: 10px 10px;
+    margin: 15px -10px;
+  }
+  
+  > button {
+    font-family: $fontAsap;
+    cursor: pointer;
+    color: #fff;
+    font-size: 16px;
+    text-transform: uppercase;
+    width: 80px;
+    border: 0;
+    padding: 10px 0;
+    margin-top: 10px;
+    margin-left: 20px;
+    border-radius: 5px;
+    background-color: $redFire;
+    transition:background-color 300ms;
+    
+    &:hover {
+      background-color: darken($redFire, 12%);
+    }
+  }
+}
+
+@keyframes  wawes {
+    from {  transform:(rotate(0)); }
+    to {  transform:(rotate(360deg)); }
+}
+
+h1{
+    font-family: 'Fira Sans', sans-serif;
+    color: crimson;
+    position: absolute;
+    left: 54%;
+    top: 43%;
+}
+
+  
+
