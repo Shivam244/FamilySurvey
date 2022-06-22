@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Form } from './model/Form';
+import { DataSharingService } from './service/data-sharing.service';
 // import { Form } from './form';
 // import { Survey } from './survey';
 
@@ -14,11 +15,20 @@ export class FormServiceService {
   modals= [];
   verify = false;
   url = "http://localhost:8080/survey";
-
-  constructor(private http:HttpClient) { }
+  // token="";
+  // headers;
+  constructor(private http:HttpClient, private dataSharingService: DataSharingService) { 
+    // this.dataSharingService.getUserData().subscribe( res=>{
+    //   this.token = res.token;
+    //   this.headers = new HttpHeaders({
+    //     'Content-Type': 'application/json',
+    //     'Authorization': `Bearer ${this.token}`
+    //   })
+    // })
+  }
 
   saveData(user: any): Observable<any>{
-    return this.http.post('http://localhost:8080/register', user, {responseType: 'text'});
+    return this.http.post('http://localhost:8080/register', user);
   }
 
   login(user: any): Observable<any>{
@@ -26,11 +36,11 @@ export class FormServiceService {
   }
 
   saveServayData(survey: any): Observable<any>{
-    return this.http.post('http://localhost:8080/survey/save', survey, {responseType: 'text'});
+    return this.http.post('http://localhost:8080/survey/save', survey);
   }
 
   updateSurveyData(survey: any): Observable<any>{
-    return this.http.put('http://localhost:8080/survey/update', survey, {responseType: 'text'});
+    return this.http.put('http://localhost:8080/survey/update', survey);
   }
 
   showData(): Observable<any>{

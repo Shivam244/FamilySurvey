@@ -5,7 +5,8 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DataSharingService {
-  userData = new BehaviorSubject<any>(null);
+  userData = new BehaviorSubject<any>([]);
+  data;
   constructor() { }
 
   setUserData(userData :any){
@@ -13,6 +14,8 @@ export class DataSharingService {
   }
 
   getUserData(){
-    return this.userData;
+    return this.userData.asObservable();
   }
+
+
 }

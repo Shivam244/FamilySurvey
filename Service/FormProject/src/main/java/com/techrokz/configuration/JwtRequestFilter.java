@@ -2,7 +2,10 @@ package com.techrokz.configuration;
 
 import com.techrokz.service.UserDetailsImpl;
 import com.techrokz.util.JwtTokenUtil;
+import lombok.SneakyThrows;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.cors.CorsUtils;
 import org.springframework.web.filter.OncePerRequestFilter;
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
@@ -17,6 +20,8 @@ import org.springframework.security.web.authentication.WebAuthenticationDetailsS
 import io.jsonwebtoken.ExpiredJwtException;
 
 import java.io.IOException;
+import java.util.Enumeration;
+import java.util.List;
 
 @Component
 public class JwtRequestFilter extends OncePerRequestFilter {
@@ -27,9 +32,13 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private JwtTokenUtil jwtTokenUtil;
 
     @Override
+    @SneakyThrows
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
             throws ServletException, IOException {
-
+        if(CorsUtils.isPreFlightRequest(request)){
+            Enumeration<String> headers =  request.getHeaderNames();
+            logger.info(headers);
+        }
         final String requestTokenHeader = request.getHeader("Authorization");
 
         String username = null;

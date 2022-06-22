@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -16,6 +16,7 @@ import {AgGridModule} from 'ag-grid-angular';
 import { BtnEditComponent } from './btn-edit/btn-edit.component';
 // import { MembersComponent } from './members/members.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { TokenInterceptorService } from './interceptors/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,13 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
     AgGridModule
     
   ],
-  providers: [FormServiceService],
+  providers: [FormServiceService, 
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -23,7 +23,7 @@ public class SurveyController {
     @PostMapping("/save")
     public ResponseEntity<Boolean> save(@RequestBody OwnerInfo survey){
         Boolean resp = service.saveSurvey(survey);
-        return new ResponseEntity<>(resp, HttpStatus.CREATED);
+        return new ResponseEntity<>(resp, HttpStatus.OK);
     }
 
     /**
@@ -33,7 +33,7 @@ public class SurveyController {
     @PutMapping("/update")
     public ResponseEntity<Boolean> update(@RequestBody OwnerInfo survey){
         Boolean resp = service.saveSurvey(survey);
-        return new ResponseEntity<>(resp, HttpStatus.ACCEPTED);
+        return new ResponseEntity<>(resp, HttpStatus.OK);
     }
 
     /**
